@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      margin: 0;
+    }
+    h2 {
+      margin-top: 0;
+      color: #1d1d1f;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    #distance {
+      font-weight: 600;
+      color: #06c;
+      font-size: 28px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e4e4e4;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    input:checked + .slider {
+      background-color: #34c759;
+    }
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #ffffff;
+      font-size: 16px;
+      color: #1d1d1f;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    button {
+      background-color: #06c;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #shareOptions {
+      display: none;
+      margin-top: 15px;
+    }
+    #shareOptions button {
+      margin-top: 10px;
+      background-color: #ffffff;
+      color: #06c;
+      border: 1px solid #06c;
+    }
+    #shareOptions button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Digital Scroll Odometer</h2>
+  <p>Total distance: <br><span id="distance"></span></p>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <span>Show on page</span>
+    <label class="switch">
+      <input type="checkbox" id="displayToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <select id="unitSelect">
+    <option value="metric">Metric (cm, m, km)</option>
+    <option value="imperial">Imperial (in, ft, mi)</option>
+  </select>
+  <button id="resetButton">Reset Distance</button>
+  <button id="shareButton">Share My Scroll</button>
+  <div id="shareOptions">
+    <button id="copyButton">Copy to Clipboard</button>
+    <button id="twitterButton">Share on Twitter</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
